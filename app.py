@@ -84,6 +84,11 @@ def get_produtos():
     except Exception as e:
         return jsonify({'message': f'Erro interno: {str(e)}'}), 500
     
+# Rota para métodos não implementados em /produtos
+@app.route('/produtos', methods=['PUT', 'DELETE', 'PATCH'])
+def metodo_nao_implementado():
+    return jsonify({'message': f'Método {request.method} não implementado para esta rota!'}), 501
+    
 # Rota para obter um produto específico pelo ID
 @app.route('/produtos/<int:id>', methods=['GET'])
 def get_produto(id):
@@ -177,6 +182,11 @@ def delete_produto(id):
         return jsonify({'message': f'Erro no banco de dados: {str(e)}'}), 500
     except Exception as e:
         return jsonify({'message': f'Erro interno: {str(e)}'}), 500
+    
+# Rota para métodos não implementados em /produtos/<id>
+@app.route('/produtos/<int:id>', methods=['POST', 'PATCH'])
+def not_implemented_for_resource(id):
+    return jsonify({'message': f'Método {request.method} não implementado para esta rota!'}), 501
 
 if __name__ == '__main__':
     init_db()  # Inicializa o banco de dados na primeira execução
