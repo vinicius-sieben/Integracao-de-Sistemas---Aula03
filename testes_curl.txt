@@ -1,3 +1,4 @@
+-------- TESTES EM ROTAS IMPLEMENTADAS --------
 GET /produtos (listar todos os produtos):
 curl http://127.0.0.1:5000/produtos
 
@@ -9,3 +10,20 @@ curl -X PUT -H "Content-Type: application/json" -d "{\"nome\":\"Mesa\",\"fornece
 
 DELETE /produtos/<id>
 curl -X DELETE http://127.0.0.1:5000/produtos/1
+
+-------- TESTES EM ROTAS NÃO IMPLEMENTADAS --------
+
+PUT /produtos
+curl -X PUT http://127.0.0.1:5000/produtos
+
+DELETE /produtos
+curl -X DELETE http://127.0.0.1:5000/produtos
+
+PATCH /produtos:
+curl -X PATCH http://127.0.0.1:5000/produtos
+
+POST /produtos/1:
+curl -X POST http://127.0.0.1:5000/produtos/1
+
+PATCH /produtos/1:
+curl -X PATCH http://127.0.0.1:5000/produtos/1
