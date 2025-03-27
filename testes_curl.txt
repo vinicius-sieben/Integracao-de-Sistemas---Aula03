@@ -1,0 +1,11 @@
+GET /produtos (listar todos os produtos):
+curl http://127.0.0.1:5000/produtos
+
+POST /produtos (adicionar um produto):
+curl -X POST -H "Content-Type: application/json" -d "{\"nome\":\"Cadeira\",\"fornecedor\":\"Móveis Ltda\",\"endereco_fornecedor\":\"Rua A, 123\",\"quantidade\":10,\"endereco\":\"Rua B, 456\",\"preco_unitario\":99.90}" http://127.0.0.1:5000/produtos
+
+PUT /produtos/<id>
+curl -X PUT -H "Content-Type: application/json" -d "{\"nome\":\"Mesa\",\"fornecedor\":\"Móveis Ltda\",\"endereco_fornecedor\":\"Rua A, 123\",\"quantidade\":5,\"endereco\":\"Rua C, 789\",\"preco_unitario\":199.90}" http://127.0.0.1:5000/produtos/1
+
+DELETE /produtos/<id>
+curl -X DELETE http://127.0.0.1:5000/produtos/1
